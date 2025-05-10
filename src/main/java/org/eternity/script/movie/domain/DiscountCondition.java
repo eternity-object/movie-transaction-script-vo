@@ -21,7 +21,9 @@ public class DiscountCondition {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "discount_sequence")
     private Long id;
     private Long policyId;
+    @Enumerated(EnumType.STRING) @Column(columnDefinition = "varchar(20)")
     private ConditionType conditionType;
+    @Enumerated(EnumType.STRING) @Column(columnDefinition = "varchar(10)")
     private DayOfWeek dayOfWeek;
     private LocalTime startTime;
     private LocalTime endTime;
