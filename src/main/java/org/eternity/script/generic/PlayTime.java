@@ -1,9 +1,6 @@
 package org.eternity.script.generic;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Embeddable;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
+import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -17,5 +14,11 @@ import java.time.DayOfWeek;
 public class PlayTime {
     @Enumerated(EnumType.STRING) @Column(columnDefinition = "varchar(10)")
     private DayOfWeek dayOfWeek;
+    @AttributeOverrides(
+            value = {
+                    @AttributeOverride(name = "startTime", column = @Column(name = "start_datetime")),
+                    @AttributeOverride(name = "endTime", column = @Column(name = "end_datetime"))
+            }
+    )
     private TimeInterval interval;
 }
