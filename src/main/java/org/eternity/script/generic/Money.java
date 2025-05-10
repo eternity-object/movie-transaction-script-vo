@@ -1,8 +1,7 @@
 package org.eternity.script.generic;
 
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
+import jakarta.persistence.Embeddable;
+import lombok.*;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -10,6 +9,7 @@ import java.util.Collection;
 import java.util.Objects;
 import java.util.function.Function;
 
+@Embeddable
 @NoArgsConstructor(access = AccessLevel.PROTECTED) @AllArgsConstructor
 public class Money {
     public static final Money ZERO = Money.wons(0);
